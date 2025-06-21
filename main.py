@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 
 app = Flask(__name__)
-app.secret_key = 'your_super_secret_key'
-
+app.secret_key = os.getenv("SECRET_KEY")
 TEST_DB = 'test.db'
-
 def init_db():
     with sqlite3.connect(TEST_DB) as conn:
         c = conn.cursor()
