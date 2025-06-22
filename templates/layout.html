@@ -11,6 +11,12 @@
         <a href="/">Home</a>
         <a href="/contact">Contact</a>
         <a href="/about">About</a>
+        {% if not session['email'] %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% else %}
+            <a href="/logout">Logout</a>
+        {% endif %}
     </div>
 
     <div class="container">
